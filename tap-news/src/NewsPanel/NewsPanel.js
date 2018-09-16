@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import 'NewsPanel.css';
+import './NewsPanel.css';
+import NewsCard from '../NewsCard/NewsCard';
 
 class NewsPanel extends Component{
     constructor(){
