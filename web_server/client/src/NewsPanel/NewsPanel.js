@@ -6,7 +6,7 @@ import _ from 'lodash';
 class NewsPanel extends Component{
     constructor(){
         super();
-        this.state = {news: null};
+        this.state = {news: null, func:[]};
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -65,7 +65,7 @@ class NewsPanel extends Component{
             return(
                 <div>
                     <div id='msg-app-loading'>
-                        Loading...
+                        <h2>Loading...</h2>
                     </div>
                 </div>
             );
