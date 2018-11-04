@@ -43,7 +43,7 @@ class SignUpPage extends React.Component {
         }).then(response => {
             if(response.status === 200){
                 this.setState({errors:{}});
-                this.context.router.replace('/');
+                this.context.router.replace('/login');
             }
             else{
                 response.json().then(function(json){
@@ -84,3 +84,5 @@ class SignUpPage extends React.Component {
         )
     }
 }
+
+export default SignUpPage;
