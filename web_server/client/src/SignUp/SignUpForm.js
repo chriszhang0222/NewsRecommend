@@ -1,5 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import './SignUpForm.css';
+import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 const SignUpForm = ({
     onSubmit,

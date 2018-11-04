@@ -6,7 +6,7 @@ const Base = ({children}) => (
     <div>
         <nav className="nav-bar indigo lighten-1">
             <div className="nav-wrapper">
-                <a href="/" className="brand-logo">&nbsp;&nbsp;Tap news</a>
+                <a href="/" className="brand-logo">&nbsp;&nbsp;News Recommend</a>
                 <ul id="nav-mobile" className="right">
                     {Auth.isUserAuthenticated() ?
                             (<div>
@@ -29,8 +29,8 @@ const Base = ({children}) => (
     </div>
 );
 
-Base.propTypes = {
-    children: PropTypes.object.isRequired
-};
+// Base.propTypes = {
+//     children: PropTypes.object.isRequired
+// };
 
 export default Base;

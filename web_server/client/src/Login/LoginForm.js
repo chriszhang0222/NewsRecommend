@@ -1,8 +1,11 @@
 import React from 'react';
 import './LoginForm.css';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
 const LoginForm = ({onSubmit, onChange, errors, user}) => (
     <div className="container">
+        <div className="card-panel login-panel">
         <form className="col 12" action="/" onSubmit={onSubmit}>
             <h4 className="center-align">Login</h4>
             {errors.summary && <div className="row"><p className="error-message">{errors.summary}</p></div>}
@@ -41,6 +44,7 @@ const LoginForm = ({onSubmit, onChange, errors, user}) => (
                 </p>
             </div>
         </form>
+        </div>
     </div>
 );
 

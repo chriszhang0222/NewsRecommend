@@ -8,4 +8,4 @@ import routers from './routes';
 ReactDOM.render(
     <Router history={browserHistory} routes={routers}/>,
     document.getElementById('root')
-)
+);

@@ -72,8 +72,8 @@ class LoginPage extends React.Component {
     render(){
         return (
             <LoginForm
-                onSubmit={this.processForm()}
-                onChange={this.changeUser()}
+                onSubmit={e => this.processForm(e)}
+                onChange={e => this.changeUser(e)}
                 errors={this.state.errors}
                 user={this.state.user}
             />

@@ -80,7 +80,10 @@ class SignUpPage extends React.Component {
     
     render(){
         return (
-            <SignUpForm onSubmit={this.processForm()} onChange={this.changeUser()} errors={this.state.errors} user={this.state.user}/>
+            <SignUpForm onSubmit={e => this.processForm(e)}
+                        onChange={e => this.changeUser(e)}
+                        errors={this.state.errors}
+                        user={this.state.user}/>
         )
     }
 }
