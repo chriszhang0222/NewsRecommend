@@ -1,9 +1,11 @@
+var cors = require('cors');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-
-
+var passport = require('passport');
+var config = require('./config/config.json');
+var auth = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var newsRouter = require('./routes/news');
 
@@ -23,14 +25,28 @@ app.use(
     express.static(path.join(__dirname, '../client/build/static/'))
 );
 
-app.all('*', function(req, res, next){
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+// app.all('*', function(req, res, next){
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   next();
+// });
+
+require('./models/main.js').connect(config.mongodbUri);
+
+
+app.use(passport.initialize());
+var localSignupStrategy = require('./passport/signup_passport');
+var localLoginStraregy = require('./passport/login_passport');
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStraregy);
+
+const authCheckMiddleware = require('./middleware/auth_checker');
+app.use('/news', authCheckMiddleware);
 
 app.use('/', indexRouter);
 app.use('/news', newsRouter);
+app.use('/auth', auth);
+app.use(cors);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
