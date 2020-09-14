@@ -78,7 +78,7 @@ router.post('/login', (req, res, next) => {
 
 function validateSignupForm(payload){
     console.log(payload);
-    const errors = {};
+    let errors = {};
     let isFormValid = true;
     let message = '';
 
@@ -106,6 +106,7 @@ function validateSignupForm(payload){
 function validateLoginForm(payload){
     let isFormValid = true;
     let message = '';
+    let errors = {};
 
     if(!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0){
         isFormValid = false;

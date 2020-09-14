@@ -6,7 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
@@ -17,6 +17,7 @@
     "jayson": "^2.1.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.9",
+    "passport": "^0.4.0",
     "morgan": "~1.9.0",
     "passport-local": "^1.0.0",
     "validator": "^10.8.0"

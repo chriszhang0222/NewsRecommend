@@ -8,10 +8,11 @@ var config = require('./config/config.json');
 var auth = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var newsRouter = require('./routes/news');
-
+var cors = require('cors');
 var app = express();
 
 // view engine setup
+app.use(cors());
 app.set('views', path.join(__dirname, '../client/build/'));
 app.set('view engine', 'jade');
 
