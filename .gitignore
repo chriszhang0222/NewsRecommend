@@ -1,2 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
+/backend_server/venv/
+web_server/server/public/images/
+web_server/server/public/javascripts/
