@@ -4,7 +4,7 @@ import sys
 import json
 from bson.json_util import dumps
 sys.path.append(os.path.join(os.path.dirname(__file__), './', 'utils'))
-from utils import mongodb_client
+from backend_server.utils import mongodb_client
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 4040
