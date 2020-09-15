@@ -1,15 +1,20 @@
 import requests
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
 
 API_KEY = '6b8adb9bbe754e77b1291823b4715e92'
 NEWS_API_ENDPOINT="https://newsapi.org/v1/"
-DEFAULT_SOURCES = ['cnn']
+DEFAULT_SOURCES = ['cnn',
+                   'Bloomberg',
+                   'bbc-news',
+                   'espn',
+                   'google-news']
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
 
 
-def getNewsFronSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
+def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
 
     def fetch_news(source):
         article_local = []
@@ -39,13 +44,35 @@ def getNewsFronSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
         for future in as_completed(tasks):
             data = future.result()
             articles.extend(data)
-    return data
+    return articles
 
-params = {
-    'apiKey': API_KEY,
-    'source': 'Bloomberg'
-}
+def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
+    articles = []
 
-response = requests.get(NEWS_API_ENDPOINT + ARTICLES_API, params=params)
-res_json = json.loads(response.content.decode('utf-8'))
-print(res_json)
+    for source in sources:
+        payload = {'apiKey':API_KEY,
+                   'source':source,
+                   'sortBy':sortBy}
+
+        response = requests.get(NEWS_API_ENDPOINT + ARTICLES_API, params=payload)
+        res_json = json.loads(response.content.decode('utf-8'))
+
+        # Extract info from response
+        if (res_json is not None and
+            res_json['status'] == 'ok' and
+            res_json['source'] is not None):
+            # populate news source in each articles
+            for news in res_json['articles']:
+                news['source'] = res_json['source']
+
+            articles.extend(res_json['articles'])
+
+    return articles
+
+start = time.time()
+res = getNewsFromSource2()
+end = time.time()
+print(len(res))
+print(end-start)
+
+
