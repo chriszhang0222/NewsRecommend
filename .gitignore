@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
-backend_server/venv/
+/backend_server/venv/
 web_server/server/public/images/
 web_server/server/public/javascripts/
-web_server/server/node_modules
+
