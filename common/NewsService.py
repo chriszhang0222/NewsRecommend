@@ -28,7 +28,7 @@ def getNewsFronSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
                 news['source'] = res_json['source']
 
             article_local.extend(res_json['articles'])
-        return articles
+        return article_local
 
     articles = []
     params = {
@@ -41,3 +41,11 @@ def getNewsFronSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
             articles.extend(data)
     return data
 
+params = {
+    'apiKey': API_KEY,
+    'source': 'Bloomberg'
+}
+
+response = requests.get(NEWS_API_ENDPOINT + ARTICLES_API, params=params)
+res_json = json.loads(response.content.decode('utf-8'))
+print(res_json)

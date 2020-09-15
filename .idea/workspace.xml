@@ -91,7 +91,7 @@
       <recent name="$PROJECT_DIR$/common/AMQPTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.AMQPTest2">
+  <component name="RunManager" selected="Python.NewsService">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -169,6 +169,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="NewsService" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="newsFeed" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/NewsService.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="cloudAMQP_client_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="newsFeed" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,16 +244,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/web_server/client/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/web_server/server/package.json" />
       <command value="run" />
@@ -244,19 +256,19 @@
     </configuration>
     <list>
       <item itemvalue="npm.start" />
-      <item itemvalue="npm.start (1)" />
       <item itemvalue="Python.service" />
       <item itemvalue="Python.cloudAMQP_client_test" />
       <item itemvalue="Python.AMQPTest" />
       <item itemvalue="Python.AMQPTest2" />
+      <item itemvalue="Python.NewsService" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.NewsService" />
         <item itemvalue="Python.AMQPTest2" />
         <item itemvalue="Python.AMQPTest" />
         <item itemvalue="Python.cloudAMQP_client_test" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.start (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -287,7 +299,7 @@
       <workItem from="1599994303899" duration="21000" />
       <workItem from="1600070712488" duration="6390000" />
       <workItem from="1600158002182" duration="315000" />
-      <workItem from="1600158350274" duration="3792000" />
+      <workItem from="1600158350274" duration="4852000" />
     </task>
     <servers />
   </component>
@@ -325,41 +337,41 @@
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600082279351" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1600082488631" />
-    <state width="958" height="245" key="GridCell.Tab.0.bottom" timestamp="1600171532694">
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom" timestamp="1600172727858">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="958" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600171532694" />
-    <state width="958" height="245" key="GridCell.Tab.0.center" timestamp="1600171532693">
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600172727858" />
+    <state width="1398" height="304" key="GridCell.Tab.0.center" timestamp="1600172727856">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="958" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600171532693" />
-    <state width="958" height="245" key="GridCell.Tab.0.left" timestamp="1600171532693">
+    <state width="1398" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600172727856" />
+    <state width="1398" height="304" key="GridCell.Tab.0.left" timestamp="1600172727854">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="958" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600171532693" />
-    <state width="958" height="245" key="GridCell.Tab.0.right" timestamp="1600171532694">
+    <state width="1398" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600172727854" />
+    <state width="1398" height="304" key="GridCell.Tab.0.right" timestamp="1600172727857">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="958" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600171532694" />
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600080501254">
+    <state width="1398" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600172727857" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600172727864">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600080501254" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600172727864" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600080420756" />
-    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600080501254">
+    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600172727861">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1600080501254" />
+    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1600172727861" />
     <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1600080420754" />
-    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600080501253">
+    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600172727860">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1600080501253" />
+    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1600172727860" />
     <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1600080420754" />
-    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600080501254">
+    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600172727863">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1600080501254" />
+    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1600172727863" />
     <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1600080420755" />
     <state width="1398" height="304" key="GridCell.Tab.2.bottom" timestamp="1600080501256">
       <screen x="0" y="0" width="1440" height="900" />
@@ -426,6 +438,10 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="res_json['articles']" language="Python" />
+        <watch expression="res_json" language="Python" />
+      </configuration>
       <configuration name="js.build_tools.npm">
         <watch expression="req.body" language="JavaScript" />
         <watch expression="res.locals.error" language="JavaScript" />
@@ -436,5 +452,6 @@
     <SUITE FILE_PATH="coverage/NewsRecommend$cloudAMQP_client_test.coverage" NAME="cloudAMQP_client_test Coverage Results" MODIFIED="1600158567752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend_server/utils" />
     <SUITE FILE_PATH="coverage/NewsRecommend$AMQPTest2.coverage" NAME="AMQPTest2 Coverage Results" MODIFIED="1600170519485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/NewsRecommend$AMQPTest.coverage" NAME="AMQPTest Coverage Results" MODIFIED="1600170480190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$NewsService.coverage" NAME="NewsService Coverage Results" MODIFIED="1600172673219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
   </component>
 </project>
