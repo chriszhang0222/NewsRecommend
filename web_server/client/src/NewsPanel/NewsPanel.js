@@ -28,7 +28,10 @@ class NewsPanel extends Component{
         let request = new Request('http://localhost:5000/news', {method:'GET'});
 
         fetch(request)
-            .then(res => res.json())
+            .then((res) => {
+                let i = res;
+                return res.json();
+            })
             .then(news => {
                 this.setState({
                     news: this.state.news ? this.state.news.concat(news) : news

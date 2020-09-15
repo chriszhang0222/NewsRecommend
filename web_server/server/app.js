@@ -42,12 +42,11 @@ passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStraregy);
 
 const authCheckMiddleware = require('./middleware/auth_checker');
-app.use('/news', authCheckMiddleware);
+// app.use('/news', authCheckMiddleware);
 
 app.use('/', indexRouter);
 app.use('/news', newsRouter);
 app.use('/auth', auth);
-app.use(cors);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

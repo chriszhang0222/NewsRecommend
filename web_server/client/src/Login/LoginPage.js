@@ -28,9 +28,8 @@ class LoginPage extends React.Component {
         console.log(email);
         console.log(password);
 
-        fetch('http://localhost:3000/auth/login', {
+        fetch('http://localhost:5000/auth/login', {
             method:'POST',
-            cache:false,
             headers:{
                 'Accept':'application/json',
                 'Content-Type': 'application/json',
@@ -80,5 +79,7 @@ class LoginPage extends React.Component {
         )
     }
 }
-
+LoginPage.contextTypes = {
+    router: PropTypes.object.isRequired
+};
 export default LoginPage;
