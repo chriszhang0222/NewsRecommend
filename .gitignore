@@ -3,4 +3,6 @@
 /backend_server/venv/
 web_server/server/public/images/
 web_server/server/public/javascripts/
-
+.idea/misc.xml
+.idea/newsFeed.iml
+.idea/workspace.xml

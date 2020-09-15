@@ -1,4 +1,4 @@
-from cloudAMQP_client import CloudAMQPClient
+from backend_server.utils.cloudAMQP_client import CloudAMQPClient
 
 CLOUDAMQP_URL = "amqp://hfihunhv:6M6k7M224aJRdbBUmcNykK7XWdTmgmgI@otter.rmq.cloudamqp.com/hfihunhv"
 
@@ -12,4 +12,4 @@ def test_basic():
     receiveMsg = client.getMessage()
 
 if __name__ == "__main__":
-    test_basic()
+    print('ok')
