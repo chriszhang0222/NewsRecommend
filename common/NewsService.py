@@ -5,11 +5,18 @@ import time
 
 API_KEY = '6b8adb9bbe754e77b1291823b4715e92'
 NEWS_API_ENDPOINT="https://newsapi.org/v1/"
-DEFAULT_SOURCES = ['cnn',
-                   'Bloomberg',
-                   'bbc-news',
-                   'espn',
-                   'google-news']
+DEFAULT_SOURCES = ['bbc-news',
+    'bbc-sport',
+    'bloomberg',
+    'cnn',
+    'entertainment-weekly',
+    'espn',
+    'ign',
+    'techcrunch',
+    'the-new-york-times',
+    'the-wall-street-journal',
+    'the-washington-post'
+]
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
 
