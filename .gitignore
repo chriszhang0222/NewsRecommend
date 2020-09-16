@@ -6,3 +6,7 @@ web_server/server/public/javascripts/
 .idea/misc.xml
 .idea/newsFeed.iml
 .idea/workspace.xml
+*.pyc
+__pychache__
+node_modules/
+package-lock.json
