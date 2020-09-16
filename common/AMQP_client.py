@@ -30,6 +30,8 @@ class AMQPClient(object):
         if self.callBack is not None:
             self.callBack(body)
         Logger.info('Receive message: {}'.format(body))
+        self.connection.sleep(5)
+
 
 
     def receiveMessage(self):
@@ -37,6 +39,7 @@ class AMQPClient(object):
                                    queue=self.queue_name,
                                    auto_ack=True)
         try:
+            Logger.info('Waiting for message...')
             self.channel.start_consuming()
         except Exception:
             self.channel.stop_consuming()
