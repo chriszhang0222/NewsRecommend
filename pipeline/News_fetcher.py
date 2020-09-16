@@ -26,8 +26,8 @@ def scrape_message_call_back(message):
             article.download()
             article.parse()
             task['text'] = article.text
-            Logger.info(task)
-            dedupe_news_queue_client.sendMessage(json.dumps(message))
+            Logger.info('Received news: {}'.format(task['title']))
+            dedupe_news_queue_client.sendMessage(message)
         except Exception as e:
             Logger.error(e)
             return
