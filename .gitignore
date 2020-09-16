@@ -10,3 +10,4 @@ web_server/server/public/javascripts/
 __pychache__
 node_modules/
 package-lock.json
+web_server/server/node_modules/
