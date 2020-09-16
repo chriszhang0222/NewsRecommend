@@ -28,11 +28,25 @@ def handle_message(message):
     published_at_day_end = published_at_day_begin + datetime.timedelta(days=1)
 
     same_day_news_list = list(mongoDB.find({'publishedAt': {'$gte': published_at_day_begin, '$lt': published_at_day_end}}))
+    if same_day_news_list and len(same_day_news_list) > 0:
+        documents = [news['text'] for news in same_day_news_list]
+        documents.insert(0, text)
+        tfidf = TfidfVectorizer().fit_transform(documents)
+        pairwise_sim = tfidf * tfidf.T
+        rows, _ = pairwise_sim.shape
+
+        for row in range(1, rows):
+            if pairwise_sim[row, 0] > SAME_NEWS_SIMILARITY_THRESHOLD:
+                # Duplicated news. Ignore.
+                try:
+                    Logger.info('Duplicate News:{}---{}'.format(message['title'], documents[row]['title']))
+                except Exception:
+                    pass
+                return
     Logger.info('Length of previous news: {}'.format(len(same_day_news_list)))
     message['publishedAt'] = published_at
     mongoDB.replace_one({'digest': message['digest']}, message, upsert=True)
     Logger.info('Succefully insert news: {}'.format(message['title']))
-
 
 
 amqp_client = AMQPClient(queue_name=DEDUPE_NEWS_TASK_QUEUE_NAME, callBack=handle_message)

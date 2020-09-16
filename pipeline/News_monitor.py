@@ -37,12 +37,14 @@ def start_fetching():
             redis_client.set(news_digest, news['title'])
             redis_client.expire(news_digest, NEWS_TIME_OUT_IN_SECONDS)
             amqp_client.sendMessage(news)
+    amqp_client.sleep(SLEEP_TIME_IN_SECONDS)
 
     Logger.info('Fetch news count: {}'.format(num_of_news))
 
 
 if __name__ == '__main__':
-    start_fetching()
+    while True:
+        start_fetching()
 
 
 

@@ -58,3 +58,6 @@ class AMQPClient(object):
             return json.loads(body.decode('utf-8'))
         else:
             return None
+
+    def sleep(self, time):
+        self.connection.sleep(time)
