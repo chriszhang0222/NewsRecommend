@@ -46,6 +46,7 @@ def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
             articles.extend(data)
     return articles
 
+
 def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
     articles = []
 
@@ -69,10 +70,5 @@ def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
 
     return articles
 
-start = time.time()
-res = getNewsFromSource2()
-end = time.time()
-print(len(res))
-print(end-start)
 
 
