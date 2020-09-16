@@ -22,7 +22,6 @@ def scrape_message_call_back(message):
                 Logger.error('Message is broken')
                 return
             task = message
-            text = None
             article = Article(task['url'])
             article.download()
             article.parse()

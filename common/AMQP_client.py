@@ -27,11 +27,17 @@ class AMQPClient(object):
         Logger.info('Message send to {}:{}'.format(self.queue_name, message))
 
     def messageCallBack(self, ch, method, properties, body):
+
+        try:
+            body = json.dumps(body.decode('utf-8'))
+        except Exception:
+            Logger.error('Error when decoding message: {}'.format(body))
+            return
+
         if self.callBack is not None:
             self.callBack(body)
         Logger.info('Receive message: {}'.format(body))
-        self.connection.sleep(5)
-
+        self.connection.sleep(1)
 
 
     def receiveMessage(self):
@@ -39,7 +45,15 @@ class AMQPClient(object):
                                    queue=self.queue_name,
                                    auto_ack=True)
         try:
-            Logger.info('Waiting for message...')
+            Logger.info('Queue: {}, Waiting for message...'.format(self.queue_name))
             self.channel.start_consuming()
         except Exception:
             self.channel.stop_consuming()
+
+    def get_message(self):
+        method_frame, header_frame, body = self.channel.basic_get(self.queue_name, True)
+        if method_frame:
+            Logger.info("[{}] Received message".format(self.queue_name))
+            return json.loads(body.decode('utf-8'))
+        else:
+            return None

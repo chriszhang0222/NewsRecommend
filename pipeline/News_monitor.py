@@ -21,9 +21,4 @@ SCRAPE_NEWS_TASK_QUEUE_NAME = "top-news-SCRAPE_NEWS_TASK_QUEUE"
 
 redis_client = redis.StrictRedis(REDIS_HOST, REDIS_PORT, db=8)
 
-url = 'http://us.cnn.com/2020/09/15/health/us-coronavirus-tuesday/index.html'
-article = Article(url)
-article.download()
-article.parse()
-print(article.text)
 
