@@ -21,6 +21,7 @@ class AMQPClient(object):
         Logger.info('Connect to RabbitMQ:{}-{}'.format('127.0.0.1', '5672'))
 
     def sendMessage(self, message):
+        message = json.dumps(message)
         self.channel.basic_publish(exchange='',
                                    routing_key=self.queue_name,
                                    body=message)
@@ -29,7 +30,7 @@ class AMQPClient(object):
     def messageCallBack(self, ch, method, properties, body):
 
         try:
-            body = json.dumps(body.decode('utf-8'))
+            body = json.loads(body.decode('utf-8'))
         except Exception:
             Logger.error('Error when decoding message: {}'.format(body))
             return

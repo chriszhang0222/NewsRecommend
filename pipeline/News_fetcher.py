@@ -33,5 +33,5 @@ def scrape_message_call_back(message):
             return
 
 
-scrape_news_queue_client = AMQPClient(queue_name=SCRAPE_NEWS_TASK_QUEUE_NAME)
+scrape_news_queue_client = AMQPClient(queue_name=SCRAPE_NEWS_TASK_QUEUE_NAME, callBack=scrape_message_call_back)
 scrape_news_queue_client.receiveMessage()

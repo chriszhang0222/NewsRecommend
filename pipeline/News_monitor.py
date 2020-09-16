@@ -20,5 +20,30 @@ REDIS_PORT = 6379
 SCRAPE_NEWS_TASK_QUEUE_NAME = "top-news-SCRAPE_NEWS_TASK_QUEUE"
 
 redis_client = redis.StrictRedis(REDIS_HOST, REDIS_PORT, db=8)
+amqp_client = AMQPClient(SCRAPE_NEWS_TASK_QUEUE_NAME)
+
+
+def start_fetching():
+    Logger.info('Start Fetching...')
+    news_list = getNewsFromSource()
+    num_of_news = 0
+    for news in news_list:
+        news_digest = hashlib.md5(news['title'].encode('utf-8')).hexdigest()
+        if redis_client.get(news_digest) is None:
+            num_of_news += 1
+            news['digest'] = news_digest
+            if news.get('publishedAt', None) is None:
+                news['publishedAt'] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+            redis_client.set(news_digest, news['title'])
+            redis_client.expire(news_digest, NEWS_TIME_OUT_IN_SECONDS)
+            amqp_client.sendMessage(news)
+
+    Logger.info('Fetch news count: {}'.format(num_of_news))
+
+
+if __name__ == '__main__':
+    start_fetching()
+
+
 
 

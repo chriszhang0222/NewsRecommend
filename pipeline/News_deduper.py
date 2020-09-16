@@ -35,5 +35,5 @@ def handle_message(message):
 
 
 
-amqp_client = AMQPClient(DEDUPE_NEWS_TASK_QUEUE_NAME, handle_message)
+amqp_client = AMQPClient(queue_name=DEDUPE_NEWS_TASK_QUEUE_NAME, callBack=handle_message)
 amqp_client.receiveMessage()
