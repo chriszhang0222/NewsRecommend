@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59e0276d-92f7-4f20-8093-1252850c2799" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/labeled_news.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loadMongo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/machine.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/NewsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/NewsService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/News_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/News_monitor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labeled_news.csv" beforeDir="false" afterPath="$PROJECT_DIR$/labeled_news.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loadMongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/loadMongo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <recent name="$PROJECT_DIR$/common/AMQPTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.News_monitor">
+  <component name="RunManager" selected="Python.loadMongo">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.loadMongo" />
+        <item itemvalue="Python.NewsService" />
         <item itemvalue="Python.News_monitor" />
         <item itemvalue="Python.News_deduper" />
         <item itemvalue="Python.News_fetcher" />
-        <item itemvalue="Python.NewsService" />
-        <item itemvalue="Python.loadMongo" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +311,7 @@
       <workItem from="1600850293653" duration="375000" />
       <workItem from="1600852428457" duration="2372000" />
       <workItem from="1600888324187" duration="4597000" />
-      <workItem from="1600948268918" duration="2613000" />
+      <workItem from="1600948268918" duration="3828000" />
     </task>
     <servers />
   </component>
@@ -355,41 +353,41 @@
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600082279351" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1600082488631" />
-    <state width="1398" height="302" key="GridCell.Tab.0.bottom" timestamp="1600950666366">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom" timestamp="1600952257324">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600950666366" />
-    <state width="1398" height="302" key="GridCell.Tab.0.center" timestamp="1600950666364">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600952257324" />
+    <state width="1398" height="302" key="GridCell.Tab.0.center" timestamp="1600952257322">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600950666364" />
-    <state width="1398" height="302" key="GridCell.Tab.0.left" timestamp="1600950666364">
+    <state width="1398" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600952257322" />
+    <state width="1398" height="302" key="GridCell.Tab.0.left" timestamp="1600952257321">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600950666364" />
-    <state width="1398" height="302" key="GridCell.Tab.0.right" timestamp="1600950666365">
+    <state width="1398" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600952257321" />
+    <state width="1398" height="302" key="GridCell.Tab.0.right" timestamp="1600952257323">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600950666365" />
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600949193244">
+    <state width="1398" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600952257323" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600951811458">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600949193244" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600951811458" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600080420756" />
-    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600949193243">
+    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600951811457">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1600949193243" />
+    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1600951811457" />
     <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1600080420754" />
-    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600949193242">
+    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600951811456">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1600949193242" />
+    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1600951811456" />
     <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1600080420754" />
-    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600949193244">
+    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600951811457">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1600949193244" />
+    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1600951811457" />
     <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1600080420755" />
     <state width="1398" height="304" key="GridCell.Tab.2.bottom" timestamp="1600080501256">
       <screen x="0" y="0" width="1440" height="900" />
@@ -463,13 +461,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/common/NewsService.py</url>
-          <line>142</line>
+          <line>160</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/common/NewsService.py</url>
-          <line>137</line>
+          <line>155</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/common/NewsService.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -479,6 +482,7 @@
         <watch expression="x['title']" language="Python" />
         <watch expression="res_json['articles'][0]" language="Python" />
         <watch expression="res_json['articles']" language="Python" />
+        <watch expression="NEWS_API_SOURCE" language="Python" />
       </configuration>
       <configuration name="js.build_tools.npm">
         <watch expression="req.body" language="JavaScript" />
@@ -487,10 +491,10 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_monitor.coverage" NAME="News_monitor Coverage Results" MODIFIED="1600950485476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_deduper.coverage" NAME="News_deduper Coverage Results" MODIFIED="1600949560297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$NewsService.coverage" NAME="NewsService Coverage Results" MODIFIED="1600949193213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$loadMongo.coverage" NAME="loadMongo Coverage Results" MODIFIED="1600894068616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_fetcher.coverage" NAME="News_fetcher Coverage Results" MODIFIED="1600949555811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_monitor.coverage" NAME="News_monitor Coverage Results" MODIFIED="1600951422848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_deduper.coverage" NAME="News_deduper Coverage Results" MODIFIED="1600951077928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$NewsService.coverage" NAME="NewsService Coverage Results" MODIFIED="1600951768475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_fetcher.coverage" NAME="News_fetcher Coverage Results" MODIFIED="1600951075008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$loadMongo.coverage" NAME="loadMongo Coverage Results" MODIFIED="1600952257301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
