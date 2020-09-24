@@ -4,7 +4,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 API_KEY = '6b8adb9bbe754e77b1291823b4715e92'
-NEWS_API_ENDPOINT="https://newsapi.org/v1/"
+NEWS_API_ENDPOINT="https://newsapi.org/v2/everything"
+NEWS_API_TOP = "https://newsapi.org/v2/top-headlines?"
 DEFAULT_SOURCES = ['bbc-news',
     'bbc-sport',
     'bloomberg',
@@ -17,9 +18,49 @@ DEFAULT_SOURCES = ['bbc-news',
     'the-wall-street-journal',
     'the-washington-post'
 ]
+
+
+TOPICS = [
+    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'China', 'Apple', 'Software',
+    'coronavirus', ''
+    # 'Lebron', 'Lakers', 'Nuggets', 'miami heat', 'boston celtics'
+    # 'China', 'US', 'Canada'
+]
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
 
+
+def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
+    params = {
+        'apiKey': API_KEY,
+    }
+
+    def fetch_news(topic):
+        article_local = []
+        payload = {
+            **params,
+            'country': topic,
+            'from': '2020-09-01',
+            'sortBy': sortBy
+        }
+        response = requests.get(NEWS_API_ENDPOINT, params=payload)
+        res_json = json.loads(response.content.decode('utf-8'))
+        if (res_json is not None and
+                res_json['status'] == 'ok'):
+            # populate news source in each articles
+            for news in res_json['articles']:
+                news['source'] = news['source']['name']
+
+            article_local.extend(res_json['articles'])
+        return article_local
+
+    articles = []
+    with ThreadPoolExecutor(max_workers=16) as exe:
+        tasks = [exe.submit(fetch_news, topic) for topic in topics]
+        for future in as_completed(tasks):
+            data = future.result()
+            articles.extend(data)
+    return articles
 
 def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
 
@@ -76,6 +117,29 @@ def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
             articles.extend(res_json['articles'])
 
     return articles
+
+
+def fetch_news(topic):
+    params = {
+        'apiKey': API_KEY,
+    }
+    article_local = []
+    payload = {
+        **params,
+        'q': topic,
+        'from': '2020-09-01',
+        'sortBy': 'publishedAt'
+    }
+    response = requests.get(NEWS_API_ENDPOINT, params=payload)
+    res_json = json.loads(response.content.decode('utf-8'))
+    if (res_json is not None and
+        res_json['status'] == 'ok'):
+        # populate news source in each articles
+        for news in res_json['articles']:
+            news['source'] = news['source']['name']
+
+        article_local.extend(res_json['articles'])
+    return article_local
 
 
 
