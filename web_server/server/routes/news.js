@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-
+let express = require('express');
+let router = express.Router();
+let rpc_client = require('../rpc_client/rpc_client');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  news = [
+  let news = [
       {
           'title': "Inside Andrew falied",
           'description': "In the end, ......",
@@ -37,6 +37,24 @@ router.get('/', function(req, res, next) {
   ];
   res.json(news);
 
+});
+
+router.get('/userId/:userId/pageNum/:pageNum', (req, res, next) => {
+    console.log('Fetching News...');
+    let user_id = req.params['userId'];
+    let page_num = req.params['pageNum'];
+    rpc_client.getNewsSummarierForUser(user_id, page_num, (resp) => {
+        res.json(resp);
+    });
+});
+
+router.post('/userId/:userId/newsId/:newsId', (req, res, next) => {
+    console.log('Logging news click...');
+    let user_id = req.params['userId'];
+    let newsId = req.params['newsId'];
+
+    rpc_client.logNewsClickForUser(user_id, newsId);
+    res.status(200);
 });
 
 module.exports = router;
