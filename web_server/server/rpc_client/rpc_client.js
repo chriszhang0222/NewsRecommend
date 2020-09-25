@@ -13,6 +13,29 @@ function add(a, b, callback) {
     });
 }
 
+let getNewsSummarierForUser = (user_id, page_num, callback) =>{
+    client.request('getNewsSummariesForUser', [user_id, page_num], (err, resp) =>{
+        if(err){
+            throw err;
+            return;
+        }
+        console.log(resp.result);
+        callback(resp.result);
+    })
+}
+
+let logNewsClickForUser = (user_id, news_id) => {
+    client.request('logNewsClickForUser', [user_id, news_id], (err, resp) => {
+        if(err){
+            throw err;
+        }
+        console.log(resp.result);
+    })
+}
+
 module.exports = {
-    add:add
+    add:add,
+    getNewsSummarierForUser: getNewsSummarierForUser,
+    logNewsClickForUser: logNewsClickForUser
+
 }

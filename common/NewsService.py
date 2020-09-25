@@ -22,8 +22,8 @@ DEFAULT_SOURCES = ['bbc-news',
 
 
 TOPICS = [
-    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'China', 'Apple', 'Software',
-    'coronavirus', 'Business', 'Taiwan', 'Technology', 'Entertainment', 'iphone'
+    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'Apple', 'Software',
+    'coronavirus', 'Business', 'Technology', 'Entertainment', 'iPhone', 'iPad'
 ]
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
@@ -35,9 +35,9 @@ def getNewsWithSource():
     }
     payload = {
         **params,
-        'sortBy': SORT_BY_TOP
+        'sortBy': SORT_BY_TOP,
     }
-    response = requests.get(NEWS_API_SOURCE, params=payload)
+    response = requests.get(NEWS_API_ENDPOINT, params=payload)
     res_json = json.loads(response.content.decode('utf-8'))
     if (res_json is not None and
             res_json['status'] == 'ok'):
@@ -58,10 +58,10 @@ def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
         payload = {
             **params,
             'q': topic,
-            'from': '2020-09-02',
+            'from': '2020-09-25',
             'sortBy': sortBy
         }
-        response = requests.get(NEWS_API_SOURCE, params=payload)
+        response = requests.get(NEWS_API_ENDPOINT, params=payload)
         res_json = json.loads(response.content.decode('utf-8'))
         if (res_json is not None and
                 res_json['status'] == 'ok'):
@@ -160,4 +160,3 @@ def fetch_news(topic):
     return article_local
 
 
-print(getNewsWithSource())
