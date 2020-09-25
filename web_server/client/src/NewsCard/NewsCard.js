@@ -6,6 +6,10 @@ class NewsCard extends Component{
         window.open(url, '_blank');
     }
 
+    sendClickLog(){
+
+    }
+
     render(){
         return(
           <div className="news-container" onClick={()=> this.redirectToUrl(this.props.news.url)}>
