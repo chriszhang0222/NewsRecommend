@@ -5,7 +5,7 @@ import time
 
 API_KEY = '6b8adb9bbe754e77b1291823b4715e92'
 NEWS_API_ENDPOINT="https://newsapi.org/v2/everything"
-NEWS_API_TOP = "https://newsapi.org/v2/top-headlines?"
+NEWS_API_TOP = "https://newsapi.org/v2/top-headlines?country=us"
 NEWS_API_SOURCE = "https://newsapi.org/v2/sources"
 DEFAULT_SOURCES = ['bbc-news',
     'bbc-sport',
@@ -137,18 +137,17 @@ def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
     return articles
 
 
-def fetch_news(topic):
+def fetch_news_top_us():
     params = {
         'apiKey': API_KEY,
     }
     article_local = []
     payload = {
         **params,
-        'q': topic,
-        'from': '2020-09-01',
-        'sortBy': 'publishedAt'
+        'from': '2020-09-25',
+
     }
-    response = requests.get(NEWS_API_ENDPOINT, params=payload)
+    response = requests.get(NEWS_API_TOP, params=payload)
     res_json = json.loads(response.content.decode('utf-8'))
     if (res_json is not None and
         res_json['status'] == 'ok'):

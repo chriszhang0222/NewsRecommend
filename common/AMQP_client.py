@@ -9,9 +9,12 @@ class AMQPClient(object):
 
     def __init__(self, queue_name, callBack=None):
         # auth = pika.PlainCredentials('root', 'root')
+        credentials = pika.PlainCredentials('admin', 'admin')
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(
-            host='127.0.0.1',
+            host='192.168.0.21',
             port=5672,
+            virtual_host='my_vhost',
+            credentials=credentials,
             socket_timeout=3
         ))
         self.callBack = callBack

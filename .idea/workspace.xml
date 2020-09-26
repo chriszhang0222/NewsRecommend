@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59e0276d-92f7-4f20-8093-1252850c2799" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web_server/client/src/NewsCard/default.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/newsFeed.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/newsFeed.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/client/src/newsSettings.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/newsSettings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/server/routes/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/server/routes/news.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/AMQP_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/AMQP_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/NewsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/NewsService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/News_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/News_monitor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/client/src/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/App/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,7 @@
       <recent name="$PROJECT_DIR$/common/AMQPTest" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start (1)">
+  <component name="RunManager" selected="Python.News_fetcher">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -148,6 +148,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="News_fetcher" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="newsFeed" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/News_fetcher.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="News_monitor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="newsFeed" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -170,6 +192,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="newsFeed" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="service" type="PythonConfigurationType" factoryName="Python">
       <module name="newsFeed" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,28 +228,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend_server/service.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tensorflow_usage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="newsFeed" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tensorflow_usage" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -245,11 +267,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start (1)" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="Python.tensorflow_usage" />
+        <item itemvalue="Python.News_fetcher" />
         <item itemvalue="Python.News_monitor" />
         <item itemvalue="Python.News_deduper" />
+        <item itemvalue="npm.start (1)" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +315,8 @@
       <workItem from="1600948268918" duration="6405000" />
       <workItem from="1600988866204" duration="3996000" />
       <workItem from="1601054578884" duration="7342000" />
-      <workItem from="1601125249699" duration="3137000" />
+      <workItem from="1601125249699" duration="4954000" />
+      <workItem from="1601134584107" duration="4720000" />
     </task>
     <servers />
   </component>
@@ -339,22 +362,22 @@
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600082279351" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1600082488631" />
-    <state width="565" height="302" key="GridCell.Tab.0.bottom" timestamp="1601126167856">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom" timestamp="1601155532803">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="565" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1601126167856" />
-    <state width="565" height="302" key="GridCell.Tab.0.center" timestamp="1601126167854">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1601155532803" />
+    <state width="1398" height="302" key="GridCell.Tab.0.center" timestamp="1601155532801">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="565" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1601126167854" />
-    <state width="565" height="302" key="GridCell.Tab.0.left" timestamp="1601126167852">
+    <state width="1398" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1601155532801" />
+    <state width="1398" height="302" key="GridCell.Tab.0.left" timestamp="1601155532799">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="565" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1601126167852" />
-    <state width="565" height="302" key="GridCell.Tab.0.right" timestamp="1601126167855">
+    <state width="1398" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1601155532799" />
+    <state width="1398" height="302" key="GridCell.Tab.0.right" timestamp="1601155532802">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="565" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1601126167855" />
+    <state width="1398" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1601155532802" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1601070128477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -415,10 +438,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1600158070807" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1600168197133">
+    <state x="221" y="89" key="SettingsEditor" timestamp="1601150085031">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1600168197133" />
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1601150085031" />
     <state width="720" height="450" key="XDebugger.FullValuePopup" timestamp="1600949089471">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -445,26 +468,6 @@
           <line>46</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -479,11 +482,11 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_monitor.coverage" NAME="News_monitor Coverage Results" MODIFIED="1601028851227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_deduper.coverage" NAME="News_deduper Coverage Results" MODIFIED="1601028832864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_monitor.coverage" NAME="News_monitor Coverage Results" MODIFIED="1601154768670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_deduper.coverage" NAME="News_deduper Coverage Results" MODIFIED="1601154725332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
     <SUITE FILE_PATH="coverage/NewsRecommend$tensorflow_usage.coverage" NAME="tensorflow_usage Coverage Results" MODIFIED="1601070135166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tensorflow_usage" />
     <SUITE FILE_PATH="coverage/NewsRecommend$NewsService.coverage" NAME="NewsService Coverage Results" MODIFIED="1600951768475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/NewsRecommend$loadMongo.coverage" NAME="loadMongo Coverage Results" MODIFIED="1600960062702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NewsRecommend$News_fetcher.coverage" NAME="News_fetcher Coverage Results" MODIFIED="1601028829464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
+    <SUITE FILE_PATH="coverage/NewsRecommend$News_fetcher.coverage" NAME="News_fetcher Coverage Results" MODIFIED="1601155516569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pipeline" />
   </component>
 </project>

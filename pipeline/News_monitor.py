@@ -7,7 +7,7 @@ import os
 import sys
 from newspaper import Article
 
-from common.NewsService import getNewsFromSource, getNewsWithTopic
+from common.NewsService import getNewsFromSource, getNewsWithTopic, fetch_news_top_us
 from common.AMQP_client import AMQPClient
 logging.basicConfig(level=logging.INFO,  format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 Logger = logging.getLogger(__name__)
@@ -25,7 +25,7 @@ amqp_client = AMQPClient(SCRAPE_NEWS_TASK_QUEUE_NAME)
 
 def start_fetching():
     Logger.info('Start Fetching...')
-    news_list = getNewsWithTopic()
+    news_list = fetch_news_top_us()
     num_of_news = 0
     for news in news_list:
         if news['title'] is None:
