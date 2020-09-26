@@ -4,6 +4,8 @@ import json
 logging.basicConfig(level=logging.INFO,  format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 Logger = logging.getLogger(__name__)
 
+HOST = '192.168.0.21'
+
 
 class AMQPClient(object):
 
@@ -11,7 +13,7 @@ class AMQPClient(object):
         # auth = pika.PlainCredentials('root', 'root')
         credentials = pika.PlainCredentials('admin', 'admin')
         self.connection = pika.BlockingConnection(pika.ConnectionParameters(
-            host='192.168.0.21',
+            host=HOST,
             port=5672,
             virtual_host='my_vhost',
             credentials=credentials,
@@ -21,7 +23,7 @@ class AMQPClient(object):
         self.queue_name = queue_name
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue=queue_name)
-        Logger.info('Connect to RabbitMQ:{}-{}'.format('127.0.0.1', '5672'))
+        Logger.info('Connect to RabbitMQ:{}-{}'.format(HOST, '5672'))
 
     def sendMessage(self, message):
         message = json.dumps(message)
