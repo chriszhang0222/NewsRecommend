@@ -3,6 +3,7 @@ import App from './App/App';
 import LoginPage from './Login/LoginPage';
 import SignUpPage from './SignUp/SignUpPage';
 import Auth from './Auth/Auth';
+import SearchPage from "./Search/SearchPage";
 
 
 const routes = {
@@ -14,6 +15,16 @@ const routes = {
                 if(Auth.isUserAuthenticated()){
                     callback(null, App);
                 } else {
+                    callback(null, LoginPage);
+                }
+            }
+        },
+        {
+            path: '/search',
+            getComponent: (location, callback) => {
+                if(Auth.isUserAuthenticated()){
+                    callback(null, SearchPage)
+                }else{
                     callback(null, LoginPage);
                 }
             }
