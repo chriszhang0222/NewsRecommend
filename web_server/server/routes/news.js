@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
           'urlToImage': 'https://washington-org.s3.amazonaws.com/s3fs-public/styles/editorial_wide/public/the-white-house-north-lawn-plus-fountain-and-flowers-credit-stephen-melkisethian_flickr-user-stephenmelkisethian.jpg?itok=ElC-_6Hr',
           'reason': "Recommand",
           'digest':"ghsd78eer",
-          'time':'today'
+          'time':'today',
+          'class': 'NBA'
       },
       {
           'title':"Hello hello hey",
@@ -22,7 +23,8 @@ router.get('/', function(req, res, next) {
           'source':'cnn',
           'reason':'hot',
           'digest':"fdf8sjdk3",
-          'time':'wednesday'
+          'time':'wednesday',
+          'class': 'Trump'
       },
       {
           'title':"Tian Meng and his friend",
@@ -32,7 +34,8 @@ router.get('/', function(req, res, next) {
           'source':'cnn',
           'reason':'hot',
           'digest':"ssad8qa23",
-          'time':'wednesday'
+          'time':'wednesday',
+          'class': 'covid'
       }
   ];
   res.json(news);

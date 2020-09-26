@@ -18,6 +18,9 @@ export const chipsName = {
 };
 
 export const classTitle = {
+    'NBA': 'NBA',
+    'covid': 'Coronavirus',
+    'Trump': 'Trump',
     "Entertainment": 'ENTERTAINMENT',
     "Techonology": 'TECHONOLOGY',
     "Health": 'HEALTH',
@@ -33,6 +36,7 @@ export const classColor = {
     'Sports': '#953f3f',
     'Trump': '#34a853',
     'Business': '#35eab7',
-    "Covid19":'#ea4335',
-    "International":'#41153f'
+    "covid":'#ea4335',
+    "International":'#41153f',
+    'Other': '#afafaf'
 }
