@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59e0276d-92f7-4f20-8093-1252850c2799" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tensorflow_usage/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tensorflow_usage/tensorflow_usage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_server/client/src/Search/Search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_server/client/src/Search/SearchPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_server/client/src/newsSettings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labeled_news.csv" beforeDir="false" afterPath="$PROJECT_DIR$/labeled_news.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/machine.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/NewsCard/NewsCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/client/src/Base/Base.js" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/client/src/Base/Base.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +288,7 @@
       <workItem from="1600888324187" duration="4597000" />
       <workItem from="1600948268918" duration="6405000" />
       <workItem from="1600988866204" duration="3996000" />
-      <workItem from="1601054578884" duration="5798000" />
+      <workItem from="1601054578884" duration="7342000" />
     </task>
     <servers />
   </component>
@@ -340,22 +334,22 @@
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600082279351" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1600082488631" />
-    <state width="1398" height="302" key="GridCell.Tab.0.bottom" timestamp="1601073461759">
+    <state width="565" height="302" key="GridCell.Tab.0.bottom" timestamp="1601113530103">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1601073461759" />
-    <state width="1398" height="302" key="GridCell.Tab.0.center" timestamp="1601073461757">
+    <state width="565" height="302" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1601113530103" />
+    <state width="565" height="302" key="GridCell.Tab.0.center" timestamp="1601113530102">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1601073461757" />
-    <state width="1398" height="302" key="GridCell.Tab.0.left" timestamp="1601073461756">
+    <state width="565" height="302" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1601113530102" />
+    <state width="565" height="302" key="GridCell.Tab.0.left" timestamp="1601113530101">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1601073461756" />
-    <state width="1398" height="302" key="GridCell.Tab.0.right" timestamp="1601073461758">
+    <state width="565" height="302" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1601113530101" />
+    <state width="565" height="302" key="GridCell.Tab.0.right" timestamp="1601113530102">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1601073461758" />
+    <state width="565" height="302" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1601113530102" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1601070128477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
