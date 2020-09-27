@@ -7,6 +7,7 @@ URL = "http://localhost:6060"
 
 client = jsonrpclib.Server(URL)
 
+
 def classify(text):
     topic = client.classify(text)
     Logger.info('Topic: {}'.format(topic))
