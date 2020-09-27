@@ -25,7 +25,7 @@ amqp_client = AMQPClient(SCRAPE_NEWS_TASK_QUEUE_NAME)
 
 def start_fetching():
     Logger.info('Start Fetching...')
-    news_list = fetch_news_top_us()
+    news_list = getNewsFromSource()
     num_of_news = 0
     for news in news_list:
         if news['title'] is None:

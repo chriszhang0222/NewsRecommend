@@ -5,9 +5,10 @@ import time
 
 API_KEY = '6b8adb9bbe754e77b1291823b4715e92'
 NEWS_API_ENDPOINT="https://newsapi.org/v2/everything"
-NEWS_API_TOP = "https://newsapi.org/v2/top-headlines?country=us"
-NEWS_API_SOURCE = "https://newsapi.org/v2/sources"
-DEFAULT_SOURCES = ['bbc-news',
+NEWS_API_TOP = "https://newsapi.org/v2/top-headlines"
+NEWS_API_SOURCE = "https://newsapi.org/v2/sources?language=en"
+DEFAULT_SOURCES = [
+    'bbc-news',
     'bbc-sport',
     'bloomberg',
     'cnn',
@@ -17,13 +18,19 @@ DEFAULT_SOURCES = ['bbc-news',
     'techcrunch',
     'the-new-york-times',
     'the-wall-street-journal',
-    'the-washington-post'
+    'the-washington-post',
+    'abc-news,'
+    'google-news',
+    'google-news-ca',
+    'cbc-news',
+    'financial-post',
+    'fox-news'
 ]
 
 
 TOPICS = [
-    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'Apple', 'Software',
-    'coronavirus', 'Business', 'Technology', 'Entertainment', 'iPhone', 'iPad'
+    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'Apple', 'Software'
+    , 'Business', 'Technology', 'Entertainment', "International", "Sports"
 ]
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
@@ -48,6 +55,7 @@ def getNewsWithSource():
         article.extend(res_json['articles'])
     return article
 
+
 def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
     params = {
         'apiKey': API_KEY,
@@ -58,6 +66,7 @@ def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
         payload = {
             **params,
             'q': topic,
+            'language': 'en',
             'from': '2020-09-25',
             'sortBy': sortBy
         }
@@ -68,6 +77,7 @@ def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
             # populate news source in each articles
             for news in res_json['articles']:
                 news['source'] = news['source']['name']
+                news['classify'] = topic
 
             article_local.extend(res_json['articles'])
         return article_local
@@ -80,23 +90,23 @@ def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
             articles.extend(data)
     return articles
 
+
 def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
 
     def fetch_news(source):
         article_local = []
         payload = {
             **params,
-            'source': source,
+            'sources': source,
             'sortBy': sortBy
         }
-        response = requests.get(NEWS_API_ENDPOINT + ARTICLES_API, params=payload)
+        response = requests.get(NEWS_API_TOP, params=payload)
         res_json = json.loads(response.content.decode('utf-8'))
         if (res_json is not None and
-            res_json['status'] == 'ok' and
-            res_json['source'] is not None):
+            res_json['status'] == 'ok'):
             # populate news source in each articles
             for news in res_json['articles']:
-                news['source'] = res_json['source']
+                news['source'] = news['source']['name']
 
             article_local.extend(res_json['articles'])
         return article_local
@@ -113,30 +123,6 @@ def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
     return articles
 
 
-def getNewsFromSource2(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
-    articles = []
-
-    for source in sources:
-        payload = {'apiKey':API_KEY,
-                   'source':source,
-                   'sortBy':sortBy}
-
-        response = requests.get(NEWS_API_ENDPOINT + ARTICLES_API, params=payload)
-        res_json = json.loads(response.content.decode('utf-8'))
-
-        # Extract info from response
-        if (res_json is not None and
-            res_json['status'] == 'ok' and
-            res_json['source'] is not None):
-            # populate news source in each articles
-            for news in res_json['articles']:
-                news['source'] = res_json['source']
-
-            articles.extend(res_json['articles'])
-
-    return articles
-
-
 def fetch_news_top_us():
     params = {
         'apiKey': API_KEY,
@@ -147,13 +133,14 @@ def fetch_news_top_us():
         'from': '2020-09-25',
 
     }
-    response = requests.get(NEWS_API_TOP, params=payload)
+    response = requests.get(NEWS_API_TOP , params=payload)
     res_json = json.loads(response.content.decode('utf-8'))
     if (res_json is not None and
         res_json['status'] == 'ok'):
         # populate news source in each articles
         for news in res_json['articles']:
             news['source'] = news['source']['name']
+            # news['classify'] = 'covid-19'
 
         article_local.extend(res_json['articles'])
     return article_local
