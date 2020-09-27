@@ -17,7 +17,8 @@ class AMQPClient(object):
             port=5672,
             virtual_host='my_vhost',
             credentials=credentials,
-            socket_timeout=3
+            socket_timeout=3,
+            heartbeat=0
         ))
         self.callBack = callBack
         self.queue_name = queue_name
