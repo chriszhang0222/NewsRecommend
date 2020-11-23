@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import './NewsPanel.css';
 import NewsCard from '../NewsCard/NewsCard';
+import Auth from '../Auth/Auth';
 import _ from 'lodash';
 
 class NewsPanel extends Component{
     constructor(){
         super();
-        this.state = {news: null, func:[]};
+        this.state = {news: null, func:[],  pageNum: 0,};
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -25,16 +26,18 @@ class NewsPanel extends Component{
     }
 
     loadMoreNews(){
-        let request = new Request('http://localhost:5000/news', {method:'GET'});
+        let url = 'http://localhost:5000'+
+      '/news/userId/' + Auth.getEmail() + '/pageNum/' + this.state.pageNum;
 
-        fetch(request)
+        fetch(url)
             .then((res) => {
                 let i = res;
                 return res.json();
             })
             .then(news => {
                 this.setState({
-                    news: this.state.news ? this.state.news.concat(news) : news
+                    news: this.state.news ? this.state.news.concat(news) : news,
+                    pageNum: this.state.pageNum + 1
                 });
             });
     }

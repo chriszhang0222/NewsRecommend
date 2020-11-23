@@ -1,4 +1,4 @@
 {
-  "mongodbUri": "mongodb://localhost:27017/tap-news",
+  "mongodbUri": "mongodb://192.168.0.17:27017/tap-news",
   "jwtSecret": "random string!!"
 }

@@ -4,7 +4,7 @@ import json
 logging.basicConfig(level=logging.INFO,  format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 Logger = logging.getLogger(__name__)
 
-HOST = '192.168.0.21'
+HOST = '192.168.0.17'
 
 
 class AMQPClient(object):

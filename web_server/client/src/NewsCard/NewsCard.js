@@ -2,14 +2,28 @@ import React, {Component} from 'react';
 import './NewsCard.css';
 import { classTitle, classColor } from '../newsSettings.js';
 import defaultPic from './default.jpg';
+import Auth from "../Auth/Auth";
 
 class NewsCard extends Component{
     redirectToUrl(url){
+        this.sendClickLog();
         window.open(url, '_blank');
     }
 
     sendClickLog(){
 
+        const url =
+			'http://localhost:5000' +
+			'/news/userId/' +
+			Auth.getEmail() +
+			'/newsId/' +
+			this.props.news.digest;
+		console.log(url);
+		let request = new Request(encodeURI(url), {
+			method: 'POST'
+		});
+
+		fetch(request);
     }
 
     defaultImg(e){
@@ -46,6 +60,16 @@ class NewsCard extends Component{
                         {this.props.news.source != null && (
 							<div className={'source labels'}>{this.props.news.source}</div>
 						)}
+						 {this.props.news.reason != null && (
+                                        <div className="chip light-green news-chip">
+                                            {this.props.news.reason}
+                                        </div>
+                        )}
+                        {this.props.news.reason2 != null && (
+                                        <div className="chip light-blue news-chip">
+                                            {this.props.news.reason2}
+                                        </div>
+                        )}
 						{this.props.news.time != null && (
 							<div className="amber darken-1 labels">Today</div>
 						)}

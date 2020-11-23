@@ -15,7 +15,7 @@ Logger = logging.getLogger(__name__)
 
 SLEEP_TIME_IN_SECONDS = 10
 NEWS_TIME_OUT_IN_SECONDS = 3600 * 24 * 3
-REDIS_HOST = 'localhost'
+REDIS_HOST = '192.168.0.17'
 REDIS_PORT = 6379
 SCRAPE_NEWS_TASK_QUEUE_NAME = "top-news-SCRAPE_NEWS_TASK_QUEUE"
 
@@ -25,7 +25,9 @@ amqp_client = AMQPClient(SCRAPE_NEWS_TASK_QUEUE_NAME)
 
 def start_fetching():
     Logger.info('Start Fetching...')
-    news_list = getNewsWithTopic()
+    news_list = []
+    # news_list.extend(getNewsFromSource())
+    news_list.extend(getNewsWithTopic())
     num_of_news = 0
     for news in news_list:
         if news['title'] is None:

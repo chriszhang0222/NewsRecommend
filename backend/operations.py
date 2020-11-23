@@ -16,7 +16,7 @@ from bson.json_util import dumps
 logging.basicConfig(level=logging.INFO,  format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 Logger = logging.getLogger(__name__)
 
-REDIS_HOST = 'localhost'
+REDIS_HOST = '192.168.0.17'
 REDIS_PORT = 6379
 
 NEWS_TABLE_NAME = "news"
@@ -40,7 +40,7 @@ def getNewsSummariesForUser(user_id, page_num):
     end_index = (page_num + 1) * NEWS_LIST_BATCH_SIZE
 
     sliced_news = []
-    news_collection = Mongo.get_collection(name=NEWS_TABLE_NAME)
+    news_collection = Mongo().get_collection(name=NEWS_TABLE_NAME)
 
     if redis_client.get(user_id) is not None:
         news_digests = pickle.loads(redis_client.get(user_id))
@@ -54,11 +54,14 @@ def getNewsSummariesForUser(user_id, page_num):
         redis_client.expire(user_id, USER_NEWS_TIME_OUT_IN_SECONDS)
         sliced_news = total_news[begin_index: end_index]
 
-    preference = getPreferenceForUser(user_id)
+    preference, preference_values = getPreferenceForUser(user_id)
     topPreference = None
+    secondaryPreference = None
 
     if preference is not None and len(preference) > 0:
         topPreference = preference[0]
+        if preference_values[1] > preference_values[2]:
+            secondaryPreference = preference[1]
 
     for news in sliced_news:
         del news['text']
@@ -66,6 +69,8 @@ def getNewsSummariesForUser(user_id, page_num):
             news['time'] = 'today'
         if 'class' in news and news['class'] == topPreference:
             news['reason'] = 'Recommend'
+        if 'class' in news and news['class'] == secondaryPreference:
+            news['reason2'] = 'Recommend'
     return json.loads(dumps(sliced_news))
 
 
@@ -73,10 +78,12 @@ def logNewsClickForUser(user_id, news_id):
     Logger.info('Click log for {0} at {1}'.format(user_id, news_id))
     amqp_client = AMQPClient(queue_name=LOG_CLICKS_TASK_QUEUE_NAME, callBack=None)
     message = {'userId': user_id, 'newsId': news_id, 'timestamp': datetime.utcnow()}
-    click_log_collection = Mongo.get_collection(CLICK_LOGS_TABLE_NAME)
+    click_log_collection = Mongo().get_collection(CLICK_LOGS_TABLE_NAME)
     click_log_collection.insert_one(message)
     message['timestamp'] = str(message['timestamp'])
+    message.pop('_id')
     amqp_client.sendMessage(message)
+    return {"success": True}
 
 
 def searchNews(keyword, page_num):
@@ -84,7 +91,7 @@ def searchNews(keyword, page_num):
     page_num = int(page_num)
     begin_index = (page_num) * NEWS_LIST_BATCH_SIZE
     end_index = (page_num + 1) * NEWS_LIST_BATCH_SIZE
-    news_collection = Mongo.get_collection(name=NEWS_TABLE_NAME)
+    news_collection = Mongo().get_collection(name=NEWS_TABLE_NAME)
 
     if redis_client.get(key) is not None:
         news_digests = pickle.loads(redis_client.get(key))

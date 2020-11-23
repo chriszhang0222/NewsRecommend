@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO,
 Logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
-    cursor = Mongo.get_collection(name='news').find({})
+    cursor = Mongo().get_collection(name='news').find({'classify': 'Python'})
     count = 0
     for news in cursor:
         count += 1
@@ -18,8 +18,8 @@ if __name__ == '__main__':
             if description is None:
                 description = news['title']
             if description:
-                topic = classify(description)
-                news['class'] = topic
-                Mongo.get_collection(name='news').replace_one({'digest': news['digest']}, news, upsert=True)
+                # topic = classify(description)
+                news['class'] = 'IT Industry'
+                Mongo().get_collection(name='news').replace_one({'digest': news['digest']}, news, upsert=True)
 
 

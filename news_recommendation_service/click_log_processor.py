@@ -33,7 +33,7 @@ def handle_message(msg):
     userId = msg['userId']
     newsId = msg['newsId']
 
-    model = Mongo.get_collection(name=PREFERENCE_MODEL_TABLE_NAME).find_one({'userId': userId})
+    model = Mongo().get_collection(name=PREFERENCE_MODEL_TABLE_NAME).find_one({'userId': userId})
     if model is None:
         Logger.info('Create preference model for new user:{0}'.format(userId))
         new_model = {'userId': userId}
@@ -43,7 +43,7 @@ def handle_message(msg):
         new_model['preference'] = perference
         model = new_model
     Logger.info('Updating preference model from new user:{}'.format(userId))
-    news = Mongo.get_collection().find_one({'digest': newsId})
+    news = Mongo().get_collection().find_one({'digest': newsId})
     if (news is None
     or 'class' not in news):
         Logger.info('News:{} skipping'.format(news))
@@ -58,7 +58,7 @@ def handle_message(msg):
         if not i == click_class:
             model['preference'][i] = float((1 - ALPHA) * model['preference'][i])
     Logger.info('Preference Model: {}'.format(model))
-    Mongo.get_collection(name=PREFERENCE_MODEL_TABLE_NAME).replace_one({'userId': userId}, model, upsert=True)
+    Mongo().get_collection(name=PREFERENCE_MODEL_TABLE_NAME).replace_one({'userId': userId}, model, upsert=True)
 
 
 rabbit_client = AMQPClient(LOG_CLICKS_TASK_QUEUE_NAME, handle_message)

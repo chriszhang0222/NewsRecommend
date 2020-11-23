@@ -38,8 +38,8 @@ def log_news_click(user_id, news_id):
 rpc_server = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
 rpc_server.register_function(search_news, 'searchNews')
 rpc_server.register_function(get_one_news, 'getOneNews')
-rpc_server.register_function(get_news_summaries_for_user, 'getNewsSummaries')
-rpc_server.register_function(log_news_click, 'logNewsClick')
+rpc_server.register_function(get_news_summaries_for_user, 'getNewsSummariesForUser')
+rpc_server.register_function(log_news_click, 'logNewsClickForUser')
 
 
 Logger.info('Start RPC Server at {}:{}'.format(SERVER_HOST, SERVER_PORT))

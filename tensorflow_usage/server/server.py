@@ -10,6 +10,7 @@ from common.utils.news_classes import *
 
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
 from tensorflow.contrib.learn.python.learn.estimators import model_fn
+from common.utils.news_classes import classes
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from tensorflow_usage.trainer.cnn_model import generate_cnn_model
@@ -24,12 +25,12 @@ SERVER_PORT = 6060
 MODEL_DIR = '../model'
 MODEL_UPDATE_LAG_IN_SECONDS = 10
 
-N_CLASSES = 8
+N_CLASSES = len(classes)
 
 VARS_FILE = '../model/vars'
 VOCAB_PROCESSOR_SAVE_FILE = '../model/vocab_procesor_save_file'
 
-n_words = 0
+n_words = 200
 
 MAX_DOCUMENT_LENGTH = 500
 vocab_processor = None
@@ -53,8 +54,9 @@ def loadModel():
         model_dir=MODEL_DIR
     )
 
-    df = pd.read_csv('../data/labeled_news.csv', header=None)
-    train_df = df[0:400]
+    df = pd.read_csv('../data/test.csv', header=None)
+    df = df.sample(frac=1)
+    train_df = df
     x_train = train_df[1]
     x_train = np.array(list(vocab_processor.transform(x_train)))
     y_train = train_df[0]
@@ -92,11 +94,11 @@ def classify(text):
     topic = class_map[str(y_predicted[0])]
     return topic
 
-
+print(classify("BLACKPINK Jennie Post a instagram KPOP"))
 # Threading RPC Server
-RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
-RPC_SERVER.register_function(classify, 'classify')
-
-print(("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT)))
-
-RPC_SERVER.serve_forever()
+# RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
+# RPC_SERVER.register_function(classify, 'classify')
+#
+# print(("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT)))
+#
+# RPC_SERVER.serve_forever()

@@ -33,9 +33,24 @@ let logNewsClickForUser = (user_id, news_id) => {
     })
 }
 
+function searchNews(keyword, page_num, callback) {
+    client.request(
+        'searchNews', [keyword, page_num], (err,error, response) => {
+            if (err) {
+                throw err;
+            }
+
+            console.log('[+] Search results received:');
+            console.log(response);
+            callback(response);
+        }
+    );
+}
+
 module.exports = {
     add:add,
     getNewsSummarierForUser: getNewsSummarierForUser,
-    logNewsClickForUser: logNewsClickForUser
+    logNewsClickForUser: logNewsClickForUser,
+    searchNews : searchNews
 
 }

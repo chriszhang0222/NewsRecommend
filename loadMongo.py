@@ -19,18 +19,25 @@ BASKET_BALL = [
     'Harden', 'Rockets', ''
 ]
 with open("labeled_news.csv", "a") as f:
+    condition = { "$or": [{"classify": "Football"}, {"classify": "NFL"},
+                          {"classify": "F1"}]}
     csv_writer = csv.writer(f)
-    for x in collections.find()[600:]:
+    for x in collections.find({"classify": "NBA"}):
         title = x['title']
         desc = x['description']
-        if title is None:
-            title = ''
-        if desc is None:
-            desc = ''
-        title.replace(',', '\\,')
-        desc.replace(',', '\\,')
+        if title:
+            title = title.replace('\\', '')
+            title = title.replace(',', '\\,')
+            title = title.replace('<li>', '')
+            title = title.replace('</li>', '')
+            title = title.replace('<ol>', '')
+            title = title.replace('</ol>', '')
+            title = title.replace('<ul>', '')
+            title = title.replace('</ul>', '')
+            title.strip()
         source = x['source']
-        url = x['url']
+        if desc:
+            csv_writer.writerow([1, title])
         # if 'iPhone' in title or 'iPhone' in desc or 'Apple' in title or 'Apple' in desc or 'iPad' in title:
         #     csv_writer.writerow([5, title, desc, source])
         # if x['source'].lower() == 'espn' or x['source'] == 'espn':
@@ -45,8 +52,8 @@ with open("labeled_news.csv", "a") as f:
         #        csv_writer.writerow([1, title, desc, source])
         #     else:
         #         csv_writer.writerow([3, title, desc, source])
-        if 'covid' in title or 'covid' in desc or 'covid' in x['text'] or 'Coronavirus' in title or 'Coronavirus' in desc:
-            csv_writer.writerow([2, title, desc, source])
+        # if 'covid' in title or 'covid' in desc or 'covid' in x['text'] or 'Coronavirus' in title or 'Coronavirus' in desc:
+        #     csv_writer.writerow([2, title, desc, source])
         # elif 'Trump' in x['title'] or 'Trump' in x['description']:
         #     csv_writer.writerow([4, title, desc, source])
 

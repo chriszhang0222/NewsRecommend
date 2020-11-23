@@ -60,4 +60,13 @@ router.post('/userId/:userId/newsId/:newsId', (req, res, next) => {
     res.status(200);
 });
 
+router.post('/search', function(req,res) {
+  console.log('Searching news...');
+   let keyword = req.body['keyword'];
+   let page_num = req.body['pageNum'];
+   rpc_client.searchNews( keyword, page_num , function(response) {
+   res.json(response);
+  });
+});
+
 module.exports = router;

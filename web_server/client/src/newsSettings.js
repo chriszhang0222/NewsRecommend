@@ -19,7 +19,7 @@ export const chipsName = {
 
 export const classTitle = {
     'NBA': 'NBA',
-    'covid': 'Coronavirus',
+    'covid-19': 'Coronavirus',
     'Trump': 'Trump',
     "Entertainment": 'ENTERTAINMENT',
     "Techonology": 'TECHONOLOGY',
@@ -27,16 +27,26 @@ export const classTitle = {
     "Business": 'BUSINESS',
     "Sports":"SPORTS",
     "Crime":"CRIME",
-    "International":"International"
+    "International":"International",
+    "Apple": "Apple",
+    'China': 'China',
+    'US': 'US',
+    'Canada': 'Canada',
+    'IT Industry': 'IT Industry'
 }
 
 export const classColor = {
-    'Entertainment': '#fbbc05',
+    'IT Industry': '#81e357',
+    'China': '#fc0000',
+    'US': '#7a83e7',
+    'Canada': '#a1cac5',
+    'Apple': '#7daddd',
+    'Entertainment': '#fb05b5',
     'NBA': '#4285f4',
     'Sports': '#953f3f',
     'Trump': '#34a853',
     'Business': '#35eab7',
-    "covid":'#ea4335',
+    "covid-19":'#a4544d',
     "International":'#41153f',
     'Other': '#afafaf'
 }

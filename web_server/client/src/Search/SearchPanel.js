@@ -38,41 +38,78 @@ class SearchPanel extends React.Component{
         }
     }
 
-    async loadMoreNews(){
-        this.setState({
-            loading: true
-        });
-        if(this.state.loadAll === true){
-            this.setState({loading: false});
-            return;
-        }
-        console.log('Search: ' + this.props.keyword);
-        let data = await fetch('http://localhost:5000/news/search', {
-              method: 'POST',
-              cache: 'no-cache',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + Auth.getToken(),
-              },
-
-              body: JSON.stringify({
-                  userId:Auth.getEmail(),
-                  keyword:this.props.keyword,
-                  pageNum:this.state.pageNum
-              })
-        });
-        let news = data.json();
-        if(!news || news.length === 0){
-            this.setState({loadAll: true});
-        }
-        this.setState({
-            news: this.state.news ? this.state.news.concat(news): news,
-            pageNum: this.state.pageNum + 1,
-            loading: false
-        })
-
+    loadMoreNews() {
+    this.setState({loading:true});
+    if (this.state.loadedAll === true) {
+      console.log('no more news!');
+      this.setState({loading:false});
+      return;
     }
+
+    console.log('Search: '+this.props.keyword);
+    fetch('http://localhost:5000/news/search', {
+      method: 'POST',
+      cache: 'no-cache',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({
+          userId:Auth.getEmail(),
+          keyword:this.props.keyword,
+          pageNum:this.state.pageNum
+      })
+    }).then((res) => res.json())
+      .then((news) => {
+        if (!news || news.length === 0) {
+          this.setState({loadedAll: true});
+        }
+
+        console.log('Received news....');
+        console.log(news);
+        this.setState({
+          news: this.state.news ? this.state.news.concat(news) : news,
+          pageNum: this.state.pageNum + 1,
+          loading: false
+        });
+      });
+  }
+    // async loadMoreNews(){
+    //     this.setState({
+    //         loading: true
+    //     });
+    //     if(this.state.loadAll === true){
+    //         this.setState({loading: false});
+    //         return;
+    //     }
+    //     console.log('Search: ' + this.props.keyword);
+    //     let data = await fetch('http://localhost:5000/news/search', {
+    //           method: 'POST',
+    //           cache: 'no-cache',
+    //           headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'Authorization': 'bearer ' + Auth.getToken(),
+    //           },
+    //
+    //           body: JSON.stringify({
+    //               userId:Auth.getEmail(),
+    //               keyword:this.props.keyword,
+    //               pageNum:this.state.pageNum
+    //           })
+    //     });
+    //     let news = data.json();
+    //     if(!news || news.length === 0){
+    //         this.setState({loadAll: true});
+    //     }
+    //     this.setState({
+    //         news: this.state.news ? this.state.news.concat(news): news,
+    //         pageNum: this.state.pageNum + 1,
+    //         loading: false
+    //     })
+    //
+    // }
 
     renderNews(){
         const news_list = this.state.news.map((news) => {

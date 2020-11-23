@@ -8,6 +8,10 @@ NEWS_API_ENDPOINT="https://newsapi.org/v2/everything"
 NEWS_API_TOP = "https://newsapi.org/v2/top-headlines"
 NEWS_API_SOURCE = "https://newsapi.org/v2/sources?language=en"
 DEFAULT_SOURCES = [
+    'yahoo-sports',
+    'clutchpoints',
+    'yahoo',
+    'bbc',
     'bbc-news',
     'bbc-sport',
     'bloomberg',
@@ -29,8 +33,68 @@ DEFAULT_SOURCES = [
 
 
 TOPICS = [
-    'NBA', 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'Apple', 'Software'
-    , 'Business', 'Technology', 'Entertainment', "International", "Sports"
+    "MacBook",
+    "Apple",
+    "covid-19",
+    "american music awards",
+    # "Redis",
+    # "Kafka",
+    # "MongoDB",
+    # "ElasticSearch",
+    # "Music",
+    # "Movie",
+    # "TV Show",
+    # "Sports",
+    "Soccer",
+    "NFL",
+    "Football",
+    "F1",
+    "Tennis",
+    # "kim kardashian",
+    # "Marvel Movies",
+    "Justin Bieber"
+    "Taylor Swift",
+    "BlackPink"
+    # "Javascript",
+    # "Typescript",
+    # "C++",
+    # "Linux"
+    # "Frontend Development",
+    # "SpringCloud",
+    # "Opensource",
+    # "Github",
+    # "SpringBoot",
+    # "GoLang",
+    # "Python",
+    # "Java",
+    # "Hadoop",
+    # "Scala",
+    # "Machine learning",
+    # "Software Development",
+    # "Amazon Web Service",
+    # "Docker",
+    # "Kubernetes",
+    # "MicroService",
+    # "Distributed System",
+    # "Vue.js",
+    # "React.js",
+    # "Backend Development"
+    # "Xi Jinping",
+    # "Hong Kong"
+    # 'NBA',
+    # "Rajon Rondo",
+    # "Lakers",
+    # "76ers",
+    # "kyrie irving"
+    # "Houston Rockets",
+    # "James Harden",
+    # "Kevin Durant",
+    # "Lebron James",
+    # "Golden State Warriors",
+    # "klay thompson",
+    # "Stephen curry",
+    # 'Trump', 'covid-19', 'bitcoin', 'US', 'Canada', 'Apple', 'Software'
+    # , 'Business', 'Technology', 'Entertainment', "International", "Sports", "China",
 ]
 SORT_BY_TOP = 'top'
 ARTICLES_API = "articles"
@@ -67,7 +131,7 @@ def getNewsWithTopic(topics=TOPICS, sortBy=SORT_BY_TOP):
             **params,
             'q': topic,
             'language': 'en',
-            'from': '2020-09-25',
+            # 'from': '2020-11-23',
             'sortBy': sortBy
         }
         response = requests.get(NEWS_API_ENDPOINT, params=payload)
@@ -146,3 +210,4 @@ def fetch_news_top_us():
     return article_local
 
 
+fetch_news_top_us()

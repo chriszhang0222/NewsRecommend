@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Search.css';
 import NewsPanel from "../NewsPanel/NewsPanel";
+import SearchPanel from './SearchPanel';
 
 class SearchPage extends Component{
 
@@ -41,6 +42,7 @@ class SearchPage extends Component{
                             <i className="fa fa-search"></i> Search
                         </div>
                     </div>
+                    {this.state.userInput !=='' && (<SearchPanel keyword={this.state.userInput} />)}
                 </div>
             </div>
         )

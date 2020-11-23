@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 Logger = logging.getLogger(__name__)
 
-MONGO_DB_HOST = "localhost"
+MONGO_DB_HOST = "192.168.0.17"
 MONGO_DB_PORT = 27017
 DB_NAME = "tap-news"
 

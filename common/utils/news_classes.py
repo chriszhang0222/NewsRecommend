@@ -10,7 +10,8 @@ classes = [
     "International",
     "Entertainment",
     "Business",
-    "Technology"
+    "Technology",
+    "IT Industry",
 ]
 
 class_map = {
@@ -25,5 +26,6 @@ class_map = {
     "9": "International",
     "10": "Entertainment",
     "11": "Business",
-    "12": "Technology"
+    "12": "Technology",
+    "13": "IT Industry",
 }

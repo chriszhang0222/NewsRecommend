@@ -7,16 +7,16 @@ import tensorflow as tf
 
 from sklearn import metrics
 from tensorflow_usage.trainer.cnn_model import generate_cnn_model
-
+from common.utils.news_classes import classes
 REMOVE_PREVIOUS_MODEL = True
 learn = tf.contrib.learn
 
 MODEL_OUTPUT_DIR = '../model/'
-DATA_SET_FILE = '../data/labeled_news.csv'
+DATA_SET_FILE = '../data/test.csv'
 VARS_FILE = '../model/vars'
 VOCAB_PROCESSOR_SAVE_FILE = '../model/vocab_procesor_save_file'
-MAX_DOCUMENT_LENGTH = 100
-N_CLASSES = 8
+MAX_DOCUMENT_LENGTH = 80
+N_CLASSES = len(classes)
 
 # Training parms
 STEPS = 200
@@ -31,10 +31,11 @@ def main(unused_argv):
 
     # Prepare training and testing data
     df = pd.read_csv(DATA_SET_FILE, header=None)
-    train_df = df[0:400]
+    df = df.sample(frac=1)
+    train_df = df[:300]
     test_df = df.drop(train_df.index)
 
-    # x - news title, y - class
+    # x - news description, y - class
     x_train = train_df[1]
     y_train = train_df[0]
     x_test = test_df[1]
@@ -63,12 +64,30 @@ def main(unused_argv):
     classifier.fit(x_train, y_train, steps=STEPS)
 
     # Evaluate model
+    # y_predicted = [
+    #     p['class'] for p in classifier.predict(x_test, as_iterable=True)
+    # ]
+
+    text_series = pd.Series(["Blackpink Anger China By Improperly Handling Baby Panda While Wearing Too Much Makeup"])
+    predict_x = np.array(list(vocab_processor.transform(text_series)))
+
+    y_predicted = [
+        p['class'] for p in classifier.predict(
+            predict_x, as_iterable=True)
+    ]
+
+
+    # score = metrics.accuracy_score(y_test, y_predicted)
+    # print(('Accuracy: {0:f}'.format(score)))
+    print('Classify:{}'.format(y_predicted[0]))
+
     y_predicted = [
         p['class'] for p in classifier.predict(x_test, as_iterable=True)
     ]
-
     score = metrics.accuracy_score(y_test, y_predicted)
     print(('Accuracy: {0:f}'.format(score)))
+
+
 
 
 if __name__ == '__main__':
