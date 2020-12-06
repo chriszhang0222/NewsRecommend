@@ -1,16 +1,5 @@
 from common.Mongo_client import Mongo
 import csv
-"""
-NBA: 1
-covid-19: 2
-other sports: 3
-Trump: 4
-Apple: 5
-China: 6
-Canada: 7
-US: 8
-Internatioal: 9
-"""
 mongo = Mongo()
 collections = mongo.get_db().get_collection('news')
 
@@ -22,7 +11,7 @@ with open("labeled_news.csv", "a") as f:
     condition = { "$or": [{"classify": "Football"}, {"classify": "NFL"},
                           {"classify": "F1"}]}
     csv_writer = csv.writer(f)
-    for x in collections.find({"classify": "NBA"}):
+    for x in collections.find({"classify":"China"}).sort([('publishedAt', -1)]):
         title = x['title']
         desc = x['description']
         if title:
@@ -37,7 +26,7 @@ with open("labeled_news.csv", "a") as f:
             title.strip()
         source = x['source']
         if desc:
-            csv_writer.writerow([1, title])
+            csv_writer.writerow([6, title])
         # if 'iPhone' in title or 'iPhone' in desc or 'Apple' in title or 'Apple' in desc or 'iPad' in title:
         #     csv_writer.writerow([5, title, desc, source])
         # if x['source'].lower() == 'espn' or x['source'] == 'espn':

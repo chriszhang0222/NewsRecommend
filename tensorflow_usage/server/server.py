@@ -92,13 +92,12 @@ def classify(text):
     ]
     Logger.info((y_predicted[0]))
     topic = class_map[str(y_predicted[0])]
+    Logger.info(text)
     return topic
-
-print(classify("BLACKPINK Jennie Post a instagram KPOP"))
 # Threading RPC Server
-# RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
-# RPC_SERVER.register_function(classify, 'classify')
-#
-# print(("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT)))
-#
-# RPC_SERVER.serve_forever()
+RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
+RPC_SERVER.register_function(classify, 'classify')
+
+print(("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT)))
+
+RPC_SERVER.serve_forever()

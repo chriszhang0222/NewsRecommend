@@ -4,6 +4,7 @@ import LoginPage from './Login/LoginPage';
 import SignUpPage from './SignUp/SignUpPage';
 import Auth from './Auth/Auth';
 import SearchPage from "./Search/SearchPage";
+import ClassifyPage from "./Classify/Classify";
 
 
 const routes = {
@@ -28,6 +29,10 @@ const routes = {
                     callback(null, LoginPage);
                 }
             }
+        },
+        {
+          path: '/classify',
+          component: ClassifyPage
         },
 
         {

@@ -32,7 +32,7 @@ class NewsCard extends Component{
 
     render(){
         return (
-            <div className='col s12 m6 l4'>
+            <div className='col s12 m6 l4 chris-card'>
                 <div className='card medium'>
                     <div className='card-image fill'>
                         {

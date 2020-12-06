@@ -5,6 +5,17 @@ var client = jayson.client.http({
     hostname: 'localhost'
 });
 
+var classify_client = jayson.client.http({
+    port: 6060,
+    hostname: 'localhost'
+})
+
+function classify(text, callback){
+    classify_client.request('classify', [text], function (err, error, response){
+        if(err) throw err;
+        callback(response)
+    })
+}
 function add(a, b, callback) {
     client.request('add', [a,b], function (err, error, response) {
        if(err) throw err;
@@ -48,6 +59,7 @@ function searchNews(keyword, page_num, callback) {
 }
 
 module.exports = {
+    classify: classify,
     add:add,
     getNewsSummarierForUser: getNewsSummarierForUser,
     logNewsClickForUser: logNewsClickForUser,

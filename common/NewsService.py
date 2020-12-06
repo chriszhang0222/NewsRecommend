@@ -33,7 +33,15 @@ DEFAULT_SOURCES = [
 
 
 TOPICS = [
+    "China",
+    "NBA",
+    "Marvel",
+    "Disney+",
+    "Trump",
+    "Music",
     "MacBook",
+    "iPhone",
+    "iOS",
     "Apple",
     "covid-19",
     "american music awards",

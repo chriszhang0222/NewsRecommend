@@ -8,7 +8,7 @@ import NewsPanel from "../NewsPanel/NewsPanel";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='main-page'>
           <div className='container'>
                 <NewsPanel/>
           </div>

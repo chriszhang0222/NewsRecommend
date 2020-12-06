@@ -69,4 +69,10 @@ router.post('/search', function(req,res) {
   });
 });
 
+router.post('/classify', function (req, res) {
+    let text = req.body['text']
+    rpc_client.classify(text, function (response) {
+        res.json(response)
+    });
+})
 module.exports = router;

@@ -15,11 +15,11 @@ MODEL_OUTPUT_DIR = '../model/'
 DATA_SET_FILE = '../data/test.csv'
 VARS_FILE = '../model/vars'
 VOCAB_PROCESSOR_SAVE_FILE = '../model/vocab_procesor_save_file'
-MAX_DOCUMENT_LENGTH = 80
+MAX_DOCUMENT_LENGTH = 75
 N_CLASSES = len(classes)
 
 # Training parms
-STEPS = 200
+STEPS = 20
 
 
 def main(unused_argv):
@@ -32,7 +32,7 @@ def main(unused_argv):
     # Prepare training and testing data
     df = pd.read_csv(DATA_SET_FILE, header=None)
     df = df.sample(frac=1)
-    train_df = df[:300]
+    train_df = df[:600]
     test_df = df.drop(train_df.index)
 
     # x - news description, y - class
@@ -68,7 +68,7 @@ def main(unused_argv):
     #     p['class'] for p in classifier.predict(x_test, as_iterable=True)
     # ]
 
-    text_series = pd.Series(["Blackpink Anger China By Improperly Handling Baby Panda While Wearing Too Much Makeup"])
+    text_series = pd.Series(["Watch: BLACKPINK Reveals Teaser For New Project “BLACKPINK – Around The World”"])
     predict_x = np.array(list(vocab_processor.transform(text_series)))
 
     y_predicted = [

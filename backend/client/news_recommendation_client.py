@@ -26,10 +26,10 @@ def getPreferenceForUserRPC(userId):
 def getPreferenceForUser(user_id):
     model = Mongo().get_collection(PREFERENCE_MODEL_TABLE_NAME).find_one({'userId': user_id})
     if model is None:
-        return []
+        return [], []
     sorted_tuples = sorted(list(model['preference'].items()), key=operator.itemgetter(1), reverse=True)
     sorted_list = [x[0] for x in sorted_tuples]
     sorted_value_list = [x[1] for x in sorted_tuples]
     if isclose(float(sorted_value_list[0]), float(sorted_value_list[-1])):
-        return []
+        return [], []
     return sorted_list, sorted_value_list

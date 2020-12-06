@@ -41,19 +41,6 @@ def getNewsSummariesForUser(user_id, page_num):
 
     sliced_news = []
     news_collection = Mongo().get_collection(name=NEWS_TABLE_NAME)
-
-    if redis_client.get(user_id) is not None:
-        news_digests = pickle.loads(redis_client.get(user_id))
-        sliced_news_digest = news_digests[begin_index:end_index]
-        sliced_news = list(news_collection.find({'digest': {'$in': sliced_news_digest}}))
-    else:
-        total_news = list(news_collection.find().sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
-        total_news_digest = [x['digest'] for x in total_news]
-
-        redis_client.set(user_id, pickle.dumps(total_news_digest))
-        redis_client.expire(user_id, USER_NEWS_TIME_OUT_IN_SECONDS)
-        sliced_news = total_news[begin_index: end_index]
-
     preference, preference_values = getPreferenceForUser(user_id)
     topPreference = None
     secondaryPreference = None
@@ -62,6 +49,44 @@ def getNewsSummariesForUser(user_id, page_num):
         topPreference = preference[0]
         if preference_values[1] > preference_values[2]:
             secondaryPreference = preference[1]
+    if page_num == 0 and topPreference:
+        if secondaryPreference:
+            condition = {"$or": [{"class": topPreference}, {"class": secondaryPreference}]}
+            total_news = list(news_collection.find(condition).sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
+            sliced_news = total_news[begin_index: end_index]
+        else:
+            total_news = list(news_collection.find({"class": topPreference}).sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
+            sliced_news = total_news[begin_index: end_index]
+        total_news_digest = [x['digest'] for x in total_news[begin_index: end_index]]
+        redis_client.set(user_id, pickle.dumps(total_news_digest))
+        redis_client.expire(user_id, USER_NEWS_TIME_OUT_IN_SECONDS)
+
+    else:
+        try:
+            news_digests = pickle.loads(redis_client.get(user_id))
+        except:
+            news_digests = []
+        if news_digests:
+            total_news = list(news_collection.find({'digest': {'$nin': news_digests}}).sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
+        else:
+            total_news = list(news_collection.find().sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
+        # total_news_digest = [x['digest'] for x in total_news]
+
+        # redis_client.set(user_id, pickle.dumps(total_news_digest))
+        # redis_client.expire(user_id, USER_NEWS_TIME_OUT_IN_SECONDS)
+        sliced_news = total_news[begin_index: end_index]
+        # if redis_client.get(user_id) is not None:
+        #     news_digests = pickle.loads(redis_client.get(user_id))
+        #     sliced_news_digest = news_digests[begin_index:end_index]
+        #     sliced_news = list(news_collection.find({'digest': {'$in': sliced_news_digest}}))
+        # else:
+        #     total_news = list(news_collection.find().sort([('publishedAt', -1)]).limit(NEWS_LIMIT))
+        #     total_news_digest = [x['digest'] for x in total_news]
+        #
+        #     redis_client.set(user_id, pickle.dumps(total_news_digest))
+        #     redis_client.expire(user_id, USER_NEWS_TIME_OUT_IN_SECONDS)
+        #     sliced_news = total_news[begin_index: end_index]
+
 
     for news in sliced_news:
         del news['text']
